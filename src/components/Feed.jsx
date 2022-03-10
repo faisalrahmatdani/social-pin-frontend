@@ -32,7 +32,7 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  if (loading) return <Spinner message="Please wait i am on work" />;
+  if (loading) return <Spinner message="Sedang Dimuat" />;
 
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };

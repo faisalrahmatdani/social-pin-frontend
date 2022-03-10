@@ -76,7 +76,7 @@ const Pin = ({ pin }) => {
               </div>
               {alreadySaved?.length !== 0 ? (
                 <button type="button" className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none">
-                  {pin?.save?.length} Saved
+                  {pin?.save?.length} Disukai
                 </button>
               ) : (
                 <button
@@ -87,14 +87,13 @@ const Pin = ({ pin }) => {
                   type="button"
                   className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                 >
-                  {pin?.save?.length} {savingPost ? "Saving" : "Save"}
+                  {pin?.save?.length} {savingPost ? "Disukai" : "Suka"}
                 </button>
               )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
               {destination?.slice(8).length > 0 ? (
                 <a href={destination} target="_blank" className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md" rel="noreferrer">
-                  {" "}
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 15 ? `${destination.slice(0, 15)}...` : destination}
                 </a>
@@ -115,7 +114,7 @@ const Pin = ({ pin }) => {
           </div>
         )}
       </div>
-      <Link to={`user-profile/${postedBy?._id}`} className="flex gap-2 mt-2 items-center">
+      <Link to={`/user-profile/${postedBy?._id}`} className="flex gap-2 mt-2 items-center">
         <img src={postedBy?.image} alt="user-profile" className="w-8 h-8 rounded-full object-cover" />
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
       </Link>

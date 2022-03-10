@@ -13,8 +13,8 @@ const notActiveBtnStyles = "bg-primary mr-4 text-black font-bold p-2 rounded-ful
 const UserProfile = () => {
   const [user, setUser] = useState();
   const [pins, setPins] = useState();
-  const [text, setText] = useState("Created");
-  const [activeBtn, setActiveBtn] = useState("created");
+  const [text, setText] = useState("Dibuat");
+  const [activeBtn, setActiveBtn] = useState("dibuat");
   const navigate = useNavigate();
   const { userId } = useParams();
 
@@ -28,7 +28,7 @@ const UserProfile = () => {
   }, [userId]);
 
   useEffect(() => {
-    if (text === "Created") {
+    if (text === "Dibuat") {
       const createdPinsQuery = userCreatedPinsQuery(userId);
 
       client.fetch(createdPinsQuery).then((data) => {
@@ -80,21 +80,21 @@ const UserProfile = () => {
             type="button"
             onClick={(e) => {
               setText(e.target.textContent);
-              setActiveBtn("created");
+              setActiveBtn("dibuat");
             }}
-            className={`${activeBtn === "created" ? activeBtnStyles : notActiveBtnStyles}`}
+            className={`${activeBtn === "dibuat" ? activeBtnStyles : notActiveBtnStyles}`}
           >
-            Created
+            Dibuat
           </button>
           <button
             type="button"
             onClick={(e) => {
               setText(e.target.textContent);
-              setActiveBtn("saved");
+              setActiveBtn("disukai");
             }}
-            className={`${activeBtn === "saved" ? activeBtnStyles : notActiveBtnStyles}`}
+            className={`${activeBtn === "disukai" ? activeBtnStyles : notActiveBtnStyles}`}
           >
-            Saved
+            Disukai
           </button>
         </div>
 
@@ -102,7 +102,7 @@ const UserProfile = () => {
           <MasonryLayout pins={pins} />
         </div>
 
-        {pins?.length === 0 && <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">No Pins Found!</div>}
+        {pins?.length === 0 && <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">Tidak Ada Gambar Disukai</div>}
       </div>
     </div>
   );

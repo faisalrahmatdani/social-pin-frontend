@@ -53,7 +53,7 @@ const PinDetail = ({ user }) => {
     fetchPinDetails();
   }, [pinId]);
 
-  if (!pinDetail) return <Spinner message="Loading pin..." />;
+  if (!pinDetail) return <Spinner message="Sedang Dimuat" />;
 
   return (
     <>
